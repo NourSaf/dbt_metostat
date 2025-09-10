@@ -21,13 +21,11 @@ date_case AS (
     SELECT 
         * ,
         (CASE
-            WHEN hour BETWEEN '00:00' AND '08:00' THEN 'night'
+            WHEN hour BETWEEN '00:00' AND '08:00' THEN 'Night'
+            WHEN hour BETWEEN '08:00' AND '16:00' THEN 'Day'
+            ELSE 'Evening'
             END
-        ) AS day_time
+        ) AS day_part
     FROM add_time_features
 )
 SELECT * FROM date_case
-
--- Night: 00:00 – 08:00
--- Day: 08:00 – 16:00
--- Evening: 16:00 – 00:00
