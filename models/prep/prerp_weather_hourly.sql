@@ -1,7 +1,7 @@
 WITH 
 hourly_data AS (
     SELECT * 
-    FROM staging_weather_hourly -- YOU NEED TO REFERENCE HERE THE STAGING TABLE
+    FROM {{ref('staging_weather_hourly')}}
 ), 
 add_time_features AS (
     SELECT  
