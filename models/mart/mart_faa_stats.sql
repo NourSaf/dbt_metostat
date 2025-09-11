@@ -35,10 +35,16 @@ total_stats AS (
     USING (airport_code)
 )
 SELECT 
-    city,
-    country, 
-    name,
-    *
+    p.city,
+    p.country, 
+    p.name,
+    ts.airport_code,
+    ts.unique_to,
+    ts.unique_from,
+    ts.total_planned,
+    ts.total_cancelled,
+    ts.total_diverted,
+    ts.total_flights
 FROM total_stats ts
 JOIN {{ref('prep_airports')}} p
 ON ts.airport_code = p.faa
