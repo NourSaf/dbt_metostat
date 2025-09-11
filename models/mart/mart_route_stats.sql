@@ -36,5 +36,5 @@ SELECT
 FROM route_stats r
 LEFT JOIN {{ref('prep_airports')}} ar
     ON r.origin_airport = ar.faa
-LEFT JOIN {{ref('prep_airports')}} ar2
+LEFT JOIN {{('prep_airports')}} ar2
     ON r.dest_airport = ar2.faa
